@@ -1,4 +1,6 @@
-/* 1. БАЗОВЫЕ НАСТРОЙКИ ДЛЯ ВСЕХ ЭКРАНОВ */
+/* ==========================================================================
+   1. ОБЩИЕ СТИЛИ (БАЗА ДЛЯ ВСЕХ УСТРОЙСТВ)
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -8,64 +10,41 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Базовый глубокий цвет фона */
-    background-color: #0b0f19;
     color: #ffffff;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
+    background-color: #0b111e; /* Премиальный глубокий темный цвет по умолчанию */
 }
 
-/* Настройки фона специально ДЛЯ НОУТБУКОВ И КОМПЬЮТЕРОВ (экраны больше телефона) */
-@media (min-width: 769px) {
-    body {
-        /* Включаем фиксированный фон (fixed) и красивую текстуру льда, которая не растягивается при скролле */
-        background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.95)), 
-                    url('img/ice-texture.jpg') no-repeat center center/cover fixed;
-    }
-}
-
-/* Настройки фона специально ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (экраны меньше или равны 768px) */
-@media (max-width: 768px) {
-    body {
-        /* На смартфонах отключаем fixed, чтобы не тормозило, и пускаем текстуру аккуратным повторением */
-        background: linear-gradient(rgba(11, 15, 25, 0.92), rgba(11, 15, 25, 0.97)), 
-                    url('img/ice-texture.jpg') repeat center top/contain;
-    }
-}
-
-
-/* Ограничитель ширины сайта — теперь он резиновый */
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Боковые отступы, чтобы текст не прилипал к краям телефона */
+    padding: 0 20px;
 }
 
 .section {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     font-weight: 800;
     letter-spacing: 1px;
-    text-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 
 /* Шапка сайта */
 header {
-    background-color: rgba(6, 10, 18, 0.9);
+    background-color: #060a12;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.15);
 }
 
 nav {
@@ -86,40 +65,24 @@ nav {
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
+    display: none; /* На мобильных меню скрыто по умолчанию для аккуратности */
 }
 
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-}
-
-/* Главный экран — Хоккейная Арена */
+/* Главный экран мобильной версии (Минимализм без искажений картинок) */
 .hero {
-    min-height: 100vh;
-    /* Идеальное центрирование стадиона с защитой от растягивания на мобильном */
-    background: linear-gradient(rgba(11, 15, 25, 0.6), #0b0f19), 
-                url('img/stadium.jpg') no-repeat center center/cover;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #070b13 0%, #0f172a 100%);
     display: flex;
     align-items: center;
-    padding-top: 100px; /* Отступ сверху, чтобы заголовок не уходил под шапку */
+    padding-top: 90px;
 }
 
 .hero-content {
-    max-width: 700px;
     width: 100%;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -127,8 +90,8 @@ nav ul li a {
 }
 
 .hero p {
-    font-size: 1.1rem;
-    color: #ccc;
+    font-size: 1.05rem;
+    color: #94a3b8;
     margin-bottom: 30px;
 }
 
@@ -141,39 +104,39 @@ nav ul li a {
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
-    border-radius: 4px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
     text-align: center;
+    width: 100%; /* На мобильном кнопка на весь экран удобна для нажатия пальцем */
 }
 
 /* О тренере */
 .about-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
 }
 
 .about-text h3 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
     color: #00d2ff;
 }
 
 .about-text p {
     margin-bottom: 15px;
-    color: #e0e0e0;
+    color: #cbd5e1;
 }
 
 .about-stats {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%;
 }
 
 .stat-card {
-    background: rgba(22, 31, 50, 0.6);
+    background: #131c2e;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
@@ -186,9 +149,15 @@ nav ul li a {
     font-weight: 800;
 }
 
+.stat-card p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
 /* Направления тренировок */
 .services-bg {
-    background: rgba(7, 11, 19, 0.6);
+    background-color: #090d16;
 }
 
 .services-grid {
@@ -198,11 +167,10 @@ nav ul li a {
 }
 
 .card {
-    background: rgba(22, 31, 50, 0.5);
+    background: #131c2e;
     padding: 30px 20px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Разрешаем словам переноситься только по правилам языка, без разрывов букв */
+    border: 1px solid rgba(255, 255, 255, 0.03);
     word-break: keep-all; 
     overflow-wrap: break-word; 
 }
@@ -211,6 +179,10 @@ nav ul li a {
     font-size: 1.3rem;
     margin-bottom: 12px;
     color: #00d2ff;
+}
+
+.card p {
+    color: #cbd5e1;
 }
 
 /* Форма записи */
@@ -224,32 +196,34 @@ nav ul li a {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: rgba(11, 15, 25, 0.8);
-    padding: 25px 20px;
+    background: #131c2e;
+    padding: 30px 20px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
+    border: 1px solid rgba(0, 210, 255, 0.1);
 }
 
 .contact-form input, .contact-form select {
     width: 100%;
     padding: 14px;
-    background: #161f32;
+    background: #0f172a;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    border-radius: 6px;
     color: #fff;
     font-size: 1rem;
+    font-family: inherit;
 }
 
-.contact-form .btn {
-    width: 100%;
+.contact-form input:focus, .contact-form select:focus {
+    outline: none;
+    border-color: #00d2ff;
 }
 
 /* Подвал */
 footer {
-    background-color: #04060a;
+    background-color: #05070c;
     padding: 30px 0;
     font-size: 0.85rem;
-    color: #777;
+    color: #64748b;
     text-align: center;
 }
 
@@ -260,26 +234,145 @@ footer {
 }
 
 
-/* 2. НАСТРОЙКИ ДЛЯ БОЛЬШИХ ЭКРАНОВ (КОМПЬЮТЕРЫ) */
+/* ==========================================================================
+   2. СТИЛИ ДЛЯ КРУПНЫХ ЭКРАНОВ (НОУТБУКИ И ПК — ОТ 769px)
+   ========================================================================== */
 @media (min-width: 769px) {
-    .section { padding: 100px 0; }
-    h2 { font-size: 2.8rem; margin-bottom: 50px; }
-    
-    .hero h1 { font-size: 4rem; }
-    .hero { padding-top: 70px; }
-    
-    /* Перестраиваем блоки в горизонтальные строки на ПК */
-    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
-    .about-stats { display: grid; grid-template-columns: 1fr; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    
-    .card { padding: 45px 35px; }
-    .contact-form { padding: 40px; }
-    .footer-content { flex-direction: row; justify-content: space-between; }
+    body {
+        /* На ноутбуках включаем глубокий лед, который зафиксирован на месте */
+        background: linear-gradient(rgba(11, 15, 25, 0.88), rgba(11, 15, 25, 0.94)), 
+                    url('img/ice-texture2.jpg') no-repeat center center/cover fixed;
+    }
+
+    .section {
+        padding: 100px 0;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+        margin-bottom: 50px;
+        text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    }
+
+    header {
+        backdrop-filter: blur(10px);
+        background-color: rgba(6, 10, 18, 0.85);
+    }
+
+    nav ul {
+        display: flex; /* Показываем меню на компьютерах */
+        list-style: none;
+    }
+
+    nav ul li {
+        margin-left: 30px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #00d2ff;
+    }
+
+    /* На ПК включаем большую панораму хоккейного стадиона */
+    .hero {
+        min-height: 100vh;
+        background: linear-gradient(rgba(11, 15, 25, 0.4), #0b0f19), 
+                    url('img/stadium.jpg') no-repeat center center/cover;
+        padding-top: 70px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        width: auto; /* Возвращаем кнопке нормальную ширину */
+        padding: 18px 40px;
+        border-radius: 4px;
+    }
+
+    /* Раскладываем блоки в сетку по горизонтали */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .about-stats {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        background: rgba(22, 31, 50, 0.5);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-left: 4px solid #00d2ff;
+    }
+
+    .services-bg {
+        background: rgba(7, 11, 19, 0.4);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .card {
+        background: rgba(22, 31, 50, 0.4);
+        backdrop-filter: blur(5px);
+        padding: 45px 35px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        background: rgba(22, 31, 50, 0.6);
+        border-color: rgba(0, 210, 255, 0.3);
+    }
+
+    .contact-form {
+        background: rgba(11, 15, 25, 0.7);
+        padding: 40px;
+        backdrop-filter: blur(10px);
+    }
+
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
-/* 3. НАСТРОЙКИ ДЛЯ ПЛАНШЕТОВ */
+/* ==========================================================================
+   3. ПРОМЕЖУТОЧНЫЕ НАСТРОЙКИ (ПЛАНШЕТЫ — ОТ 500px ДО 768px)
+   ========================================================================== */
 @media (min-width: 500px) and (max-width: 768px) {
-    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .btn {
+        width: auto;
+    }
 }
