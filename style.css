@@ -93,7 +93,7 @@ nav ul li a:hover {
     height: 100vh;
     /* Качественный фоновый рисунок хоккейного стадиона в тумане с прожекторами */
     background: linear-gradient(rgba(11, 15, 25, 0.4), #0b0f19), 
-                url('https://unsplash.com') no-repeat center center/cover;
+                url('img/ice-texture.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     padding-top: 80px;
