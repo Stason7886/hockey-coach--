@@ -1,4 +1,4 @@
-/* Базовые сбросы и шрифты */
+/* 1. БАЗОВЫЕ НАСТРОЙКИ ДЛЯ ВСЕХ ЭКРАНОВ */
 * {
     margin: 0;
     padding: 0;
@@ -8,61 +8,81 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Текстура поцарапанного темно-синего льда на фоне всего сайта */
-    background: linear-gradient(rgba(11, 15, 25, 0.85), rgba(11, 15, 25, 0.95)), 
-                url('img/ice-texture2.jpg') no-repeat center center/cover fixed;
+    /* Базовый глубокий цвет фона */
+    background-color: #0b0f19;
     color: #ffffff;
-    line-height: 1.6;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
 }
 
+/* Настройки фона специально ДЛЯ НОУТБУКОВ И КОМПЬЮТЕРОВ (экраны больше телефона) */
+@media (min-width: 769px) {
+    body {
+        /* Включаем фиксированный фон (fixed) и красивую текстуру льда, которая не растягивается при скролле */
+        background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.95)), 
+                    url('img/ice-texture.jpg') no-repeat center center/cover fixed;
+    }
+}
+
+/* Настройки фона специально ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (экраны меньше или равны 768px) */
+@media (max-width: 768px) {
+    body {
+        /* На смартфонах отключаем fixed, чтобы не тормозило, и пускаем текстуру аккуратным повторением */
+        background: linear-gradient(rgba(11, 15, 25, 0.92), rgba(11, 15, 25, 0.97)), 
+                    url('img/ice-texture.jpg') repeat center top/contain;
+    }
+}
+
+
+/* Ограничитель ширины сайта — теперь он резиновый */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px; /* Боковые отступы, чтобы текст не прилипал к краям телефона */
 }
 
 .section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     font-weight: 800;
-    letter-spacing: 2px;
-    /* Эффект легкого неонового свечения текста */
-    text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 
-/* Шапка и навигация */
+/* Шапка сайта */
 header {
-    background-color: rgba(6, 10, 18, 0.85);
+    background-color: rgba(6, 10, 18, 0.9);
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 70px;
 }
 
 .logo {
     font-weight: 800;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
 }
 
 .logo span {
     color: #00d2ff;
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
 }
 
 nav ul {
@@ -71,68 +91,45 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #00d2ff;
-}
-
-/* Главный экран (Обложка) — Хоккейная Арена */
+/* Главный экран — Хоккейная Арена */
 .hero {
-    height: 100vh;
-    /* Качественный фоновый рисунок хоккейного стадиона в тумане с прожекторами */
-    background: linear-gradient(rgba(11, 15, 25, 0.4), #0b0f19), 
-                url('img/ice-texture.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    /* Идеальное центрирование стадиона с защитой от растягивания на мобильном */
+    background: linear-gradient(rgba(11, 15, 25, 0.6), #0b0f19), 
+                url('img/stadium.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
-    padding-top: 140px;
-    position: relative;
-}
-
-/* Эффект морозной дымки снизу главного экрана */
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(to top, rgba(11, 15, 25, 1), rgba(11, 15, 25, 0));
-    pointer-events: none;
+    padding-top: 100px; /* Отступ сверху, чтобы заголовок не уходил под шапку */
 }
 
 .hero-content {
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
+    max-width: 700px;
+    width: 100%;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 25px;
+    line-height: 1.2;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
-    font-size: 1.3rem;
-    color: #e0e0e0;
-    margin-bottom: 40px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
 }
 
 /* Кнопки */
@@ -140,250 +137,149 @@ nav ul li a:hover {
     display: inline-block;
     background: linear-gradient(135deg, #00d2ff, #00b4db);
     color: #0b0f19;
-    padding: 18px 40px;
+    padding: 16px 32px;
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, #00e5ff, #00c6ff);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5);
+    text-align: center;
 }
 
 /* О тренере */
 .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .about-text h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
     color: #00d2ff;
-    text-transform: uppercase;
 }
 
 .about-text p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #e0e0e0;
-    font-size: 1.05rem;
 }
 
 .about-stats {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }
 
-/* Карточки статистики делаем полупрозрачными «изо льда» */
 .stat-card {
     background: rgba(22, 31, 50, 0.6);
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
     border-left: 4px solid #00d2ff;
-    backdrop-filter: blur(5px);
 }
 
 .stat-card h4 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     color: #00d2ff;
-    margin-bottom: 5px;
     font-weight: 800;
 }
 
-.stat-card p {
-    font-size: 0.95rem;
-    color: #bbb;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Услуги */
+/* Направления тренировок */
 .services-bg {
-    /* Легкое затемнение слоя, чтобы выделить секцию услуг */
-    background: rgba(7, 11, 19, 0.5);
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(7, 11, 19, 0.6);
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Карточки услуг с эффектом матового стекла (Glassmorphism) */
 .card {
     background: rgba(22, 31, 50, 0.5);
-    padding: 45px 35px;
+    padding: 30px 20px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    background: rgba(22, 31, 50, 0.7);
-    border-color: rgba(0, 210, 255, 0.3);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    /* Разрешаем словам переноситься только по правилам языка, без разрывов букв */
+    word-break: keep-all; 
+    overflow-wrap: break-word; 
 }
 
 .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
     color: #00d2ff;
-    text-transform: uppercase;
 }
 
-.card p {
-    color: #ccc;
-    font-size: 1rem;
-}
-
-/* Контакты и Форма */
+/* Форма записи */
 .contact-wrapper {
-    max-width: 550px;
+    width: 100%;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background: rgba(11, 15, 25, 0.7);
-    padding: 40px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 210, 255, 0.1);
-    backdrop-filter: blur(10px);
+    gap: 15px;
+    background: rgba(11, 15, 25, 0.8);
+    padding: 25px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
 }
 
 .contact-form input, .contact-form select {
     width: 100%;
-    padding: 16px;
-    background: rgba(22, 31, 50, 0.8);
+    padding: 14px;
+    background: #161f32;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     color: #fff;
-    font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.contact-form input:focus, .contact-form select:focus {
-    outline: none;
-    border-color: #00d2ff;
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
-}
-
-.contact-form option {
-    background-color: #161f32;
 }
 
 .contact-form .btn {
     width: 100%;
-    margin-top: 10px;
 }
 
 /* Подвал */
 footer {
     background-color: #04060a;
-    padding: 40px 0;
-    border-top: 1px solid rgba(0, 210, 255, 0.1);
-    font-size: 0.95rem;
-    color: #888;
+    padding: 30px 0;
+    font-size: 0.85rem;
+    color: #777;
+    text-align: center;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* Адаптивность под смартфоны */
-@media (max-width: 992px) {
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-stats { grid-template-columns: repeat(3, 1fr); }
-}
 
-@media (max-width: 768px) {
-    /* 1. Исправляем общий фон льда для телефона */
-    body {
-        /* Отключаем эффект 'fixed' (он сильно ломает отображение фонов на iOS/Android) 
-           и центрируем текстуру льда */
-        background-attachment: scroll;
-        background-position: center top;
-        background-size: contain; /* Картинка льда не будет неестественно растягиваться */
-        background-repeat: repeat; /* Повторяем текстуру при скролле вниз */
-    }
-
-    /* 2. Исправляем главный экран (Хоккейную арену) */
-    .hero {
-        /* Делаем затемнение более плотным (0.7 вместо 0.4), чтобы текст на телефоне не сливался с фоном,
-           и принудительно центрируем стадион по горизонтали */
-        background: linear-gradient(rgba(11, 15, 25, 0.7), #0b0f19), 
-                    url('img/stadium.jpg') no-repeat center center/cover;
-        height: 85vh; /* Немного уменьшаем высоту экрана на мобильных, чтобы не было пустых зон */
-    }
-
-    .hero h1 { 
-        font-size: 2.2rem; /* Уменьшаем размер шрифта, чтобы заголовки не разбивались по одной букве */
-        line-height: 1.2;
-    }
+/* 2. НАСТРОЙКИ ДЛЯ БОЛЬШИХ ЭКРАНОВ (КОМПЬЮТЕРЫ) */
+@media (min-width: 769px) {
+    .section { padding: 100px 0; }
+    h2 { font-size: 2.8rem; margin-bottom: 50px; }
     
-    .hero p { 
-        font-size: 1.05rem; 
-        margin-bottom: 30px;
-    }
-
-    /* 3. Оптимизируем карточки и отступы */
-    .section {
-        padding: 60px 0; /* Уменьшаем гигантские компьютерные отступы */
-    }
-
-    h2 { 
-        font-size: 2rem; 
-        margin-bottom: 35px;
-    }
-
-    .about-stats { 
-        grid-template-columns: 1fr; /* Выстраиваем статистику в один аккуратный столбик */
-        gap: 15px;
-    }
-
-    .stat-card {
-        padding: 20px; /* Делаем карточки чуть компактнее */
-    }
-
-    .card {
-        padding: 30px 20px; /* Сужаем карточки услуг по бокам */
-    }
-
-    .contact-form { 
-        padding: 25px 20px; /* Адаптируем форму под узкие экраны */
-    }
-
-    .footer-content { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 10px;
-    }
+    .hero h1 { font-size: 4rem; }
+    .hero { padding-top: 70px; }
     
-    nav ul { 
-        display: none; /* Скрываем ссылки меню на смартфонах, чтобы они не налезали на логотип */
-    }
+    /* Перестраиваем блоки в горизонтальные строки на ПК */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
+    .about-stats { display: grid; grid-template-columns: 1fr; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    
+    .card { padding: 45px 35px; }
+    .contact-form { padding: 40px; }
+    .footer-content { flex-direction: row; justify-content: space-between; }
 }
 
+/* 3. НАСТРОЙКИ ДЛЯ ПЛАНШЕТОВ */
+@media (min-width: 500px) and (max-width: 768px) {
+    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+}
