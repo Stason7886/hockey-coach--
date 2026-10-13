@@ -320,11 +320,70 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.6rem; }
-    .hero p { font-size: 1.1rem; }
-    .about-stats { grid-template-columns: 1fr; }
-    .footer-content { flex-direction: column; text-align: center; }
-    nav ul { display: none; }
-    h2 { font-size: 2.2rem; }
-    .contact-form { padding: 25px; }
+    /* 1. Исправляем общий фон льда для телефона */
+    body {
+        /* Отключаем эффект 'fixed' (он сильно ломает отображение фонов на iOS/Android) 
+           и центрируем текстуру льда */
+        background-attachment: scroll;
+        background-position: center top;
+        background-size: contain; /* Картинка льда не будет неестественно растягиваться */
+        background-repeat: repeat; /* Повторяем текстуру при скролле вниз */
+    }
+
+    /* 2. Исправляем главный экран (Хоккейную арену) */
+    .hero {
+        /* Делаем затемнение более плотным (0.7 вместо 0.4), чтобы текст на телефоне не сливался с фоном,
+           и принудительно центрируем стадион по горизонтали */
+        background: linear-gradient(rgba(11, 15, 25, 0.7), #0b0f19), 
+                    url('img/stadium.jpg') no-repeat center center/cover;
+        height: 85vh; /* Немного уменьшаем высоту экрана на мобильных, чтобы не было пустых зон */
+    }
+
+    .hero h1 { 
+        font-size: 2.2rem; /* Уменьшаем размер шрифта, чтобы заголовки не разбивались по одной букве */
+        line-height: 1.2;
+    }
+    
+    .hero p { 
+        font-size: 1.05rem; 
+        margin-bottom: 30px;
+    }
+
+    /* 3. Оптимизируем карточки и отступы */
+    .section {
+        padding: 60px 0; /* Уменьшаем гигантские компьютерные отступы */
+    }
+
+    h2 { 
+        font-size: 2rem; 
+        margin-bottom: 35px;
+    }
+
+    .about-stats { 
+        grid-template-columns: 1fr; /* Выстраиваем статистику в один аккуратный столбик */
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 20px; /* Делаем карточки чуть компактнее */
+    }
+
+    .card {
+        padding: 30px 20px; /* Сужаем карточки услуг по бокам */
+    }
+
+    .contact-form { 
+        padding: 25px 20px; /* Адаптируем форму под узкие экраны */
+    }
+
+    .footer-content { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 10px;
+    }
+    
+    nav ul { 
+        display: none; /* Скрываем ссылки меню на смартфонах, чтобы они не налезали на логотип */
+    }
 }
+
