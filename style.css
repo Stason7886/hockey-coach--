@@ -10,14 +10,13 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Крупная текстура льда для мобильных (repeat), плавно уходящая в темноту */
-    background: linear-gradient(rgba(11, 15, 25, 0.93), rgba(11, 15, 25, 0.97)), 
-                url('img/ice-texture.jpg') repeat center top/350px;
+    /* Крупная текстура льда для мобильных из надежного источника */
+    background: linear-gradient(rgba(11, 15, 25, 0.94), rgba(11, 15, 25, 0.97)), 
+                url('https://yastatic.net') repeat center top/300px;
     color: #ffffff;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
 }
-
 
 .container {
     width: 100%;
@@ -37,6 +36,7 @@ h2 {
     margin-bottom: 35px;
     font-weight: 800;
     letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 
 /* Шапка сайта */
@@ -68,16 +68,17 @@ nav {
 }
 
 nav ul {
-    display: none; /* На мобильных меню скрыто по умолчанию для аккуратности */
+    display: none;
 }
 
-/* Главный экран мобильной версии (Минимализм без искажений картинок) */
+/* Главный экран мобильной версии с картинкой хоккейной арены */
 .hero {
-    min-height: 90vh;
-    background: linear-gradient(135deg, #070b13 0%, #0f172a 100%);
+    min-height: 85vh;
+    background: linear-gradient(rgba(11, 15, 25, 0.75), #0b111e), 
+                url('https://yandex.net') no-repeat center center/cover;
     display: flex;
     align-items: center;
-    padding-top: 90px;
+    padding-top: 100px;
 }
 
 .hero-content {
@@ -111,7 +112,7 @@ nav ul {
     border: none;
     cursor: pointer;
     text-align: center;
-    width: 100%; /* На мобильном кнопка на весь экран удобна для нажатия пальцем */
+    width: 100%;
 }
 
 /* О тренере */
@@ -139,7 +140,7 @@ nav ul {
 }
 
 .stat-card {
-    background: #131c2e;
+    background: rgba(19, 28, 46, 0.7);
     padding: 20px;
     text-align: center;
     border-radius: 8px;
@@ -160,7 +161,7 @@ nav ul {
 
 /* Направления тренировок */
 .services-bg {
-    background-color: #090d16;
+    background-color: rgba(7, 11, 22, 0.5);
 }
 
 .services-grid {
@@ -170,14 +171,13 @@ nav ul {
 }
 
 .card {
-    background: rgba(19, 28, 46, 0.7); /* Сделали карточки полупрозрачными */
+    background: rgba(19, 28, 46, 0.7);
     padding: 30px 20px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     word-break: keep-all; 
     overflow-wrap: break-word; 
 }
-
 
 .card h3 {
     font-size: 1.3rem;
@@ -200,7 +200,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: #131c2e;
+    background: rgba(19, 28, 46, 0.8);
     padding: 30px 20px;
     border-radius: 8px;
     border: 1px solid rgba(0, 210, 255, 0.1);
@@ -243,9 +243,9 @@ footer {
    ========================================================================== */
 @media (min-width: 769px) {
     body {
-        /* На ноутбуках включаем глубокий лед, который зафиксирован на месте */
+        /* На ноутбуках включаем глубокий лед с фиксацией на месте */
         background: linear-gradient(rgba(11, 15, 25, 0.88), rgba(11, 15, 25, 0.94)), 
-                    url('img/ice-texture2.jpg') no-repeat center center/cover fixed;
+                    url('img/ice-texture.jpg') no-repeat center center/cover fixed;
     }
 
     .section {
@@ -264,7 +264,7 @@ footer {
     }
 
     nav ul {
-        display: flex; /* Показываем меню на компьютерах */
+        display: flex;
         list-style: none;
     }
 
@@ -286,18 +286,13 @@ footer {
         color: #00d2ff;
     }
 
-    /* На ПК включаем большую панораму хоккейного стадиона */
-    /* Главный экран мобильной версии с фоном стадиона */
-.hero {
-    min-height: 85vh;
-    /* Возвращаем стадион, плотно затемняем его на 75% для читаемости текста */
-    background: linear-gradient(rgba(11, 15, 25, 0.75), #0b111e), 
-                url('img/stadium.jpg') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    padding-top: 100px;
-}
-
+    /* На ПК включаем панораму хоккейной арены */
+    .hero {
+        min-height: 100vh;
+        background: linear-gradient(rgba(11, 15, 25, 0.4), #0b0f19), 
+                    url('img/ice-texture2.jpg') no-repeat center center/cover;
+        padding-top: 70px;
+    }
 
     .hero h1 {
         font-size: 4rem;
@@ -309,12 +304,11 @@ footer {
     }
 
     .btn {
-        width: auto; /* Возвращаем кнопке нормальную ширину */
+        width: auto;
         padding: 18px 40px;
         border-radius: 4px;
     }
 
-    /* Раскладываем блоки в сетку по горизонтали */
     .about-grid {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
@@ -369,7 +363,7 @@ footer {
 }
 
 /* ==========================================================================
-   3. ПРОМЕЖУТОЧНЫЕ НАСТРОЙКИ (ПЛАНШЕТЫ — ОТ 500px ДО 768px)
+   3. ПРОМЕЖУТОЧНЫЕ НАСТРОЙКИ (ПЛАНШЕТЫ)
    ========================================================================== */
 @media (min-width: 500px) and (max-width: 768px) {
     .about-stats {
