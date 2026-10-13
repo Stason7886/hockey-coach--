@@ -10,11 +10,14 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    /* Крупная текстура льда для мобильных (repeat), плавно уходящая в темноту */
+    background: linear-gradient(rgba(11, 15, 25, 0.93), rgba(11, 15, 25, 0.97)), 
+                url('img/ice-texture.jpg') repeat center top/350px;
     color: #ffffff;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
-    background-color: #0b111e; /* Премиальный глубокий темный цвет по умолчанию */
 }
+
 
 .container {
     width: 100%;
@@ -167,13 +170,14 @@ nav ul {
 }
 
 .card {
-    background: #131c2e;
+    background: rgba(19, 28, 46, 0.7); /* Сделали карточки полупрозрачными */
     padding: 30px 20px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     word-break: keep-all; 
     overflow-wrap: break-word; 
 }
+
 
 .card h3 {
     font-size: 1.3rem;
@@ -283,12 +287,17 @@ footer {
     }
 
     /* На ПК включаем большую панораму хоккейного стадиона */
-    .hero {
-        min-height: 100vh;
-        background: linear-gradient(rgba(11, 15, 25, 0.4), #0b0f19), 
-                    url('img/stadium.jpg') no-repeat center center/cover;
-        padding-top: 70px;
-    }
+    /* Главный экран мобильной версии с фоном стадиона */
+.hero {
+    min-height: 85vh;
+    /* Возвращаем стадион, плотно затемняем его на 75% для читаемости текста */
+    background: linear-gradient(rgba(11, 15, 25, 0.75), #0b111e), 
+                url('img/stadium.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+
 
     .hero h1 {
         font-size: 4rem;
