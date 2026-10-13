@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хоккейный тренер | Профессиональная подготовка</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем красивый шрифт -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Навигация -->
+    <header>
+        <nav class="container">
+            <div class="logo">COACH<span>HOCKEY</span></div>
+            <ul>
+                <li><a href="#about">О тренере</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contacts">Запись</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Профессиональная хоккейная подготовка</h1>
+            <p>Индивидуальные и групповые тренировки для детей и взрослых. Постановка техники катания, дриблинга и броска.</p>
+            <a href="#contacts" class="btn">Записаться на лед</a>
+        </div>
+    </section>
+
+    <!-- О тренере -->
+    <section id="about" class="container section">
+        <h2>О тренере</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Имя Фамилия</h3>
+                <p>Дипломированный специалист с опытом игровой и тренерской деятельности более 10 лет. Я помогаю хоккеистам любого уровня — от новичков, впервые встающих на коньки, до профессионалов, желающих отточить индивидуальное мастерство.</p>
+                <p>Мой подход базируется на современных методиках подготовки, контроле биомеханики движений и развитии игрового мышления.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <h4>10+</h4>
+                    <p>лет опыта</p>
+                </div>
+                <div class="stat-card">
+                    <h4>300+</h4>
+                    <p>учеников</p>
+                </div>
+                <div class="stat-card">
+                    <h4>КМС</h4>
+                    <p>звание</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services-bg">
+        <div class="container section">
+            <h2>Направления тренировок</h2>
+            <div class="services-grid">
+                <div class="card">
+                    <h3>Дети и Новички</h3>
+                    <p>Постановка правильной посадки, базового шага, торможения. Обучение ведению шайбы в игровой форме.</p>
+                </div>
+                <div class="card">
+                    <h3>Силовое катание</h3>
+                    <p>Развитие взрывного старта, маневренности, виражей и устойчивости на льду. Работа над эффективностью шага.</p>
+                </div>
+                <div class="card">
+                    <h3>Дриблинг и броски</h3>
+                    <p>Техника владения клюшкой, обманные движения (финты), скрытые передачи и постановка плотного, точного броска.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты и Форма -->
+    <section id="contacts" class="container section">
+        <h2>Записаться на тренировку</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: #aaa;">Оставьте заявку, и я свяжусь с вами для обсуждения графика и целей</p>
+        
+        <div class="contact-wrapper">
+            <!-- Сюда можно вставить реальную ссылку на обработчик, пока сделано просто визуально -->
+            <form class="contact-form" onsubmit="alert('Заявка отправлена!'); return false;">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Ваш телефон" required>
+                <select required>
+                    <option value="" disabled selected>Уровень подготовки</option>
+                    <option value="child">Ребенок (с нуля)</option>
+                    <option value="amateur">Взрослый любитель</option>
+                    <option value="pro">Продвинутый игрок</option>
+                </select>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Тренер по хоккею. Все права защищены.</p>
+            <p>Телефон: +7 (XXX) XXX-XX-XX | Локация: г. Санкт-Петербург</p>
+        </div>
+    </footer>
+
+</body>
+</html>

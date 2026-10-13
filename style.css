@@ -1,0 +1,268 @@
+/* Базовые сбросы и шрифты */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Плавный скролл по якорям */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0b0f19; /* Глубокий темно-синий/черный фон */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Шапка и навигация */
+header {
+    background-color: rgba(11, 15, 25, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #00d2ff; /* Ледяной синий акцент */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00d2ff;
+}
+
+/* Главный экран (Обложка) */
+.hero {
+    height: 100vh;
+    /* Вместо URL можно подставить свое фото льда/тренера */
+    background: linear-gradient(rgba(11, 15, 25, 0.8), #0b0f19), url('https://unsplash.com') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    background-color: #00d2ff;
+    color: #0b0f19;
+    padding: 15px 35px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #00b4db;
+    transform: translateY(-2px);
+}
+
+/* О тренере */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #00d2ff;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #161f32;
+    padding: 30px 10px;
+    text-align: center;
+    border-radius: 6px;
+    border-bottom: 3px solid #00d2ff;
+}
+
+.stat-card h4 {
+    font-size: 2.5rem;
+    color: #00d2ff;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Услуги */
+.services-bg {
+    background-color: #111827;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #161f32;
+    padding: 40px 30px;
+    border-radius: 6px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #00d2ff;
+}
+
+.card p {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+/* Форма */
+.contact-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input, .contact-form select {
+    width: 100%;
+    padding: 15px;
+    background-color: #161f32;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.contact-form input:focus, .contact-form select:focus {
+    outline: none;
+    border-color: #00d2ff;
+}
+
+.contact-form option {
+    background-color: #161f32;
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+/* Подвал */
+footer {
+    background-color: #05070b;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
+    .about-stats { grid-template-columns: 1fr; }
+    .footer-content { flex-direction: column; text-align: center; }
+    nav ul { display: none; } /* Для полноценного мобильного меню нужен JS, пока просто скрываем ссылки на мелких экранах */
+}
